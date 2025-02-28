@@ -35,14 +35,11 @@ Para correr el proyecto en local, sigue estos pasos:
 El proyecto ha sido desplegado en **Vercel** y puede accederse en la siguiente URL:
 
 🔗 [Frontend Deploy](https://prueba-tecnica-frontend-three.vercel.app/)
-## Mejoras futuras
-- Tipado más robusto: No hubo suficiente tiempo para tipar correctamente toda la aplicación con TypeScript.
-- Implementación de gráficas: Para mostrar estadísticas de usuarios y actividades.
-
-Mejoras en la UI/UX.
 ## Mejoras Pendientes
 - Implementar gráficos para visualizar estadísticas.
 - Mejorar la autenticación y manejo de sesiones.
 - Optimizar el rendimiento en la carga de datos.
+- Tipado más robusto: No hubo suficiente tiempo para tipar correctamente toda la aplicación con TypeScript.
+- Mejoras en la UI/UX.
   },
 })
