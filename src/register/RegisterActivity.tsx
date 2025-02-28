@@ -24,7 +24,7 @@ const RegisterActivity: React.FC = () => {
     try {
       const response = await axios.post(`${URL}activities/`, formData);
       if (response.status === 201) {
-        navigate("/"); // Redirige a la página principal
+        navigate("/");
       }
     } catch (err) {
       setError("Failed to register activity. Please try again.");
