@@ -41,5 +41,3 @@ El proyecto ha sido desplegado en **Vercel** y puede accederse en la siguiente U
 - Optimizar el rendimiento en la carga de datos.
 - Tipado más robusto: No hubo suficiente tiempo para tipar correctamente toda la aplicación con TypeScript.
 - Mejoras en la UI/UX.
-  },
-})
