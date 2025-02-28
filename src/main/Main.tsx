@@ -5,22 +5,22 @@ import axios from "axios";
 import "./Main.css"; 
 
 const MainPage: React.FC = () => {
-  const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchType, setSearchType] = useState("users");
-  const [results, setResults] = useState<any[]>([]);
+    const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState("");
+    const [searchType, setSearchType] = useState("users");
+    const [data, setData] = useState<any[]>([]);
 
-  const handleSearch = async () => {
-    if (!searchQuery.trim()) return;
-    
-    try {
-      const response = await axios.get(`${URL}${searchType}/`, {
-        params: { search: searchQuery }
-      });
-      setResults(response.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    const handleSearch = async () => {
+        if (!searchQuery.trim()) return;
+        
+        try {
+        const response = await axios.get(`${URL}${searchType}/`, {
+            params: { search: searchQuery }
+        });
+        setData(response.data.results);
+        } catch (error) {
+        console.error("Error fetching data:", error);
+        }
   };
 
   return (
@@ -51,10 +51,10 @@ const MainPage: React.FC = () => {
       </div>
 
       <div className="results">
-        {results.length > 0 ? (
+        {data.length > 0 ? (
           <ul>
-            {results.map((item, index) => (
-              <li key={index} className="result-item">{JSON.stringify(item)}</li>
+            {data.map((item, index) => (
+                <li key={index} className="result-item">{JSON.stringify(item)}</li>
             ))}
           </ul>
         ) : (

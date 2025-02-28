@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import URL from "../url/api";
 import "./Activities.css";
 
-const API_USERS = "http://localhost:8000/views/api/users/";
-const API_ACTIVITIES = "http://localhost:8000/views/api/activities/";
+const API_USERS = `${URL}users/`;
+const API_ACTIVITIES = `${URL}activities/`;
 
 const Activities: React.FC = () => {
   const [users, setUsers] = useState<{ id: number; username: string }[]>([]);
@@ -14,10 +15,10 @@ const Activities: React.FC = () => {
     axios
         .get(API_USERS)
         .then((response) => {
-            setUsers(response.data);
+            setUsers(response.data.results);
             })
         .catch((error) => {
-            console.error("Error obteniendo usuarios:", error);
+            console.error("Error:", error);
         });
   }, []);
 
@@ -27,7 +28,7 @@ const Activities: React.FC = () => {
     axios
       .get(API_ACTIVITIES, { params: { user_id: selectedUser } })
       .then((response) => {
-        setActivities(response.data);
+        setActivities(response.data.results);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -36,29 +37,29 @@ const Activities: React.FC = () => {
 
   return (
     <div className="activities-container">
-      <h1>Actividades de Usuarios</h1>
+      <h1>User activities</h1>
 
       <div className="search-box">
         <select value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
-          <option value="">Seleccione un usuario</option>
+          <option value="">Select an user</option>
           {users.map((user) => (
             <option key={user.id} value={user.id}>
               {user.username}
             </option>
           ))}
         </select>
-        <button onClick={handleSearch}>Buscar Actividades</button>
+        <button onClick={handleSearch}>Search activities</button>
       </div>
 
       <div className="activities-list">
-        <h2>Resultados:</h2>
+        <h2>Results:</h2>
         {activities.length === 0 ? (
-          <p>No hay actividades registradas.</p>
+          <p>No activities.</p>
         ) : (
           <ul>
             {activities.map((activity, index) => (
               <li key={index}>
-                <strong>Acción:</strong> {activity.action} - <strong>Fecha:</strong> {activity.timestamp}
+                <strong>Action:</strong> {activity.action} - <strong>Date:</strong> {activity.timestamp}
               </li>
             ))}
           </ul>
