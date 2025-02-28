@@ -1,32 +1,47 @@
-# React + TypeScript + Vite
+# Frontend - Prueba Técnica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es el frontend de la prueba técnica, desarrollado en **React** con **TypeScript**. Se encarga de gestionar la interfaz de usuario para la creación y consulta de usuarios y actividades, consumiendo la API proporcionada por el backend.
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas
+- **React** con **TypeScript**
+- **Axios** para las peticiones HTTP
+- **React Router** para la navegación
+- **CSS puro** para los estilos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características Implementadas
+- **Registro de Usuarios**: Formulario para ingresar nuevos usuarios.
+- **Registro de Actividades**: Formulario donde se asocia una actividad a un usuario.
+- **Búsqueda de Usuarios y Actividades**: Se puede buscar usuarios y actividades con filtros dinámicos.
+- **Interfaz Responsiva**: Adaptada para diferentes tamaños de pantalla.
 
-## Expanding the ESLint configuration
+## Instalación y Ejecución
+Para correr el proyecto en local, sigue estos pasos:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clonar el repositorio:
+   ```bash
+   git clone <repo_url>
+   cd activities
+   ```
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+3. Ejecutar la aplicación:
+   ```bash
+   npm run dev
+   ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
+## Despliegue
+El proyecto ha sido desplegado en **Vercel** y puede accederse en la siguiente URL:
+
+🔗 [Frontend Deploy](https://prueba-tecnica-frontend-three.vercel.app/)
+
+## Mejoras Pendientes
+- Implementar gráficos para visualizar estadísticas.
+- Mejorar la autenticación y manejo de sesiones.
+- Optimizar el rendimiento en la carga de datos.
+
+
   },
 })
 ```
